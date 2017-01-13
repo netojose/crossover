@@ -49,6 +49,5 @@
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
-  },
-  "postinstall": "./node_modules/webpack -p --config ./webpack.config.js --progress"
+  }
 }
