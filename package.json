@@ -50,5 +50,5 @@
       "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
-  "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
+  "heroku-postbuild": "./node_modules/webpack -p --config ./webpack.config.js --progress"
 }
