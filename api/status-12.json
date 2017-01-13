@@ -1,0 +1,53 @@
+{
+    "id" : 12,
+    "metrics": null,
+    "build": {
+        "time": "12:23am - 2/19/2014",
+        "debug": "ok",
+        "release": "ok",
+        "is_ok": true,
+        "info": [
+            {
+                "label": "Latency",
+                "value": "140ms"
+            },
+            {
+                "label": "Disk Management",
+                "value": "Logical"
+            },
+            {
+                "label": "Logs",
+                "value": "Enabled"
+            },
+            {
+                "label": "Network Analysis services",
+                "value": "Working"
+            }
+        ]
+    },
+    "unit_test": {
+        "passed": 23,
+        "error": 86,
+        "code_covered": 24,
+        "is_ok": false,
+        "info": [
+            {
+                "label": "Test tool",
+                "value": "Php Unit"
+            },
+            {
+                "label": "Ignore warnings",
+                "value": "No"
+            },
+            {
+                "label": "Logs",
+                "value": "Enabled"
+            }
+        ]
+    },
+    "functional_test": null,
+    "result": {
+        "status": "rejected",
+        "message": "Metrics Reduction"
+    }
+}

@@ -1,0 +1,181 @@
+@import './animations.scss';
+@import './colors.scss';
+@import './mixins.scss';
+
+.box-wrapper{
+    .box{
+        height: 182px;
+        position: relative;
+        margin: 10px;
+        transition: all 0.35s ease;
+        box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.35);
+        border-width: 3px;
+        border-style: solid;
+        cursor: pointer;
+        animation: fadein 1.5s;
+        width: 90%;
+        margin-left: 5%;
+        float: left;
+
+        h3 {
+            margin: 5px 5px 10px 5px;
+            font-size: 16px;
+        }
+
+        &:hover{
+            opacity: .7;
+        }
+
+        &.build{
+            .build-machine {
+                float: left;
+                width: 50%;
+                text-align: center;
+                margin-top: 10px;
+                p { margin: 0; }
+                span {
+                    font-size: 50px;
+                    line-height: 40px;
+                    text-align: center;
+                }
+
+                &.ok{
+                    span, p {color: $blue;}
+                }
+
+                &.error{
+                    span, p {color: $error;}
+                }
+            }
+            p { 
+                float: left;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 3px;
+                margin-top: 25px;
+                color: #000;
+                font-size: 12px;
+            }
+            & > p {
+                position: absolute;
+                bottom: 0;
+            }
+        }
+
+        &.metrics{
+            .metric{
+                float: left;
+                width: 50%;
+                margin-bottom: 3px;
+                h4, p {
+                    text-align: center;
+                    margin: 0;
+                }
+                h4 {
+                    background: center center no-repeat;
+                    width: 100%;
+                    height: 50px;
+                    line-height: 50px;
+                    font-weight: 100;
+                }
+                &.ok h4{
+                    color: #fff;
+                    background-image: url('../images/arrow-up.png');
+                }
+                &.warning h4{
+                    color: #000;
+                    background-image: url('../images/arrow-right.png');
+                }
+                &.error h4{
+                    color: #fff;
+                    background-image: url('../images/arrow-down.png');
+                }
+                p{
+                    color: #000;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        &.chart-box{
+            h4, p{
+                text-align: center;
+                margin: 0;
+            }
+            p{
+                color: #000;
+                font-size: 11px;
+            }
+            .ok{color: #72ac4d;}
+            .warning{color: #eb7d3b;}
+            .col{
+                float: left;
+                width: 50%;
+                h4 {
+                    font-size: 34px;
+                    margin-top: 20px;
+                    @media only screen and (max-width:1000px) {
+                        font-size: 26px;
+
+                        @media only screen and (max-width:800px) {
+                            font-size: 34px;
+                        }
+                    }
+                }
+            }
+            .progress-bar{
+                float: left;
+                width: 92%;
+                margin: 2% 4%;
+                background: #c6dfb5;
+                position: absolute;
+                bottom: 0;
+            }
+        }
+
+        &.error{
+            border-color: $error;
+            @include gradientLinearDiagonal($errorLight);
+            h3 { color: $error; }
+        }
+
+        &.success{
+            border-color: $success;
+            @include gradientLinearDiagonal($successLight);
+            h3 { color: $success; }
+        }
+
+        &.empty{
+            border-color: $waiting;
+            @include gradientLinearDiagonal($waitingLight);
+            h3 { color: $waiting; }
+            cursor: default;
+        }
+    }
+
+    .popover{
+        background: #fff;
+        border: solid 2px #ccc;
+        position: absolute;
+        z-index: 999;
+        padding: 5px;
+        box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.35);
+        animation: scaleIn 0.3s;
+
+        h4{
+            margin: 2px;
+            color: #000;
+        }
+        
+        ul {
+            padding: 0;
+            li {
+                float: none;
+                width: 100%;
+                color: $waiting;
+                margin: 4px;
+                font-size: 13px;
+            }
+        }
+    }
+}

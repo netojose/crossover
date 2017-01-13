@@ -1,0 +1,51 @@
+@import './colors.scss';
+@import './mixins.scss';
+@import './animations.scss';
+
+.summary-report-wrapper {
+    float: right;
+    position: relative;
+    left: -50%;
+    text-align: left;
+
+    .loader {
+        margin-top: 120px;
+    }
+
+    .summary-report {
+        animation: fadein 1s;
+        position: relative;
+        left: 50%;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-size: 15px;
+        width: 80%;
+        max-width: 1200px;
+        margin-left: calc(10% - 14px);
+        margin-top: 30px;
+        float: left;
+        padding: 0 14px 10px 10px;
+        box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.35);
+        @include gradientLinearDiagonal(#f5f8fb, #ffffff);
+
+        &.error{
+            width: 100%;
+            padding: 20px;
+            margin-left: -5%;
+            color: $error;
+        }
+
+        .headers {
+            width: 100%;
+            padding: 0;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .report-items{
+            width: 100%;
+            float: left;
+            padding: 0;
+            list-style: none;
+        }
+    }
+}

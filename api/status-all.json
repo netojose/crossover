@@ -1,0 +1,105 @@
+[
+    {
+        "id": 12,
+        "type": "build",
+        "name": "Tenrox-349",
+        "owner": "ACME",
+        "time_started": "1/10/2017 12:23pm",
+        "complete" : false,
+        "metrics": {
+            "status": "waiting"
+        },
+        "build": {
+            "status": "success"
+        },
+        "unit_test": {
+            "status": "failed"
+        },
+        "functional_test": {
+            "status": "waiting"
+        }
+    },
+    {
+        "id": 13,
+        "type": "firewall",
+        "name": "CORP",
+        "owner": "Miacel",
+        "time_started": "1/10/2017 12:25pm",
+        "complete" : false,
+        "metrics": {
+            "status": "success"
+        },
+        "build": {
+            "status": "success"
+        },
+        "unit_test": {
+            "status": "success"
+        },
+        "functional_test": {
+            "status": "success"
+        }
+    },
+    {
+        "id": 14,
+        "type": "firewall",
+        "name": "345435",
+        "owner": "Von-34",
+        "time_started": "1/10/2017 12:26pm",
+        "complete" : true,
+        "metrics": {
+            "status": "success"
+        },
+        "build": {
+            "status": "success"
+        },
+        "unit_test": {
+            "status": "success"
+        },
+        "functional_test": {
+            "status": "success"
+        }
+    },
+    {
+        "id": 15,
+        "type": "firewall",
+        "name": "546456",
+        "owner": "Neumann",
+        "time_started": "1/10/2017 12:27pm",
+        "complete" : false,
+        "metrics": {
+            "status": "running",
+            "progress": 50
+        },
+        "build": {
+            "status": "running",
+            "progress": 34
+        },
+        "unit_test": {
+            "status": "success"
+        },
+        "functional_test": {
+            "status": "running",
+            "progress": 78
+        }
+    },
+    {
+        "id": 16,
+        "type": "firewall",
+        "name": "345345",
+        "owner": "Nika",
+        "time_started": "",
+        "complete" : false,
+        "metrics": {
+            "status": "waiting"
+        },
+        "build": {
+            "status": "waiting"
+        },
+        "unit_test": {
+            "status": "waiting"
+        },
+        "functional_test": {
+            "status": "waiting"
+        }
+    }
+]

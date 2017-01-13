@@ -1,0 +1,105 @@
+{
+    "id" : 14,
+    "metrics": {
+        "test": {
+            "value": 64,
+            "status": "ok"
+        },
+        "maintainability": {
+            "value": 51,
+            "status": "ok"
+        },
+        "security": {
+            "value": 78,
+            "status": "ok"
+        },
+        "workmanship": {
+            "value": 86,
+            "status": "ok"
+        },
+        "is_ok": true,
+        "info": [
+            {
+                "label": "Ignore logs",
+                "value": "No"
+            },
+            {
+                "label": "Ignore Warnings",
+                "value": "Yes"
+            },
+            {
+                "label": "Skip tests",
+                "value": "Yes"
+            }
+        ]
+    },
+    "build": {
+        "time": "12:27pm - 1/10/2017",
+        "debug": "ok",
+        "release": "ok",
+        "is_ok": true,
+        "info": [
+            {
+                "label": "Latency",
+                "value": "140ms"
+            },
+            {
+                "label": "Disk Management",
+                "value": "Logical"
+            },
+            {
+                "label": "Logs",
+                "value": "Enabled"
+            },
+            {
+                "label": "Network Analysis services",
+                "value": "Working"
+            }
+        ]
+    },
+    "unit_test": {
+        "passed": 68,
+        "error": 23,
+        "code_covered": 76,
+        "is_ok": true,
+        "info": [
+            {
+                "label": "Test tool",
+                "value": "Php Unit"
+            },
+            {
+                "label": "Ignore warnings",
+                "value": "No"
+            },
+            {
+                "label": "Logs",
+                "value": "Enabled"
+            }
+        ]
+    },
+    "functional_test": {
+        "passed": 142,
+        "error": 27,
+        "code_covered": 91,
+        "is_ok": true,
+        "info": [
+            {
+                "label": "Skip interface tests",
+                "value": "No"
+            },
+            {
+                "label": "Ignore warnings",
+                "value": "No"
+            },
+            {
+                "label": "Test Tool",
+                "value": "Selenium"
+            }
+        ]
+    },
+    "result": {
+        "status": "completed",
+        "message": "Complete",
+        "environments": ["Production", "Staging", "Q&A"]
+    }
+}
