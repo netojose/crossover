@@ -6,8 +6,9 @@
   "scripts": {
     "test": "node_modules/.bin/jest --verbose",
     "test:watch": "node_modules/.bin/jest --watch",
-    "start": "./node_modules/webpack/bin/webpack.js -p",
-    "build": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline"
+    "build": "./node_modules/webpack/bin/webpack.js -p",
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline",
+    "postinstall": "./node_modules/webpack/bin/webpack.js -p"
   },
   "author": "José Neto <sputinykster@gmail.com> (https://www.fb.com/sputinyk)",
   "license": "ISC",
