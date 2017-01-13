@@ -49,5 +49,6 @@
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
-  }
+  },
+  "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress"
 }
