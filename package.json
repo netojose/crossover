@@ -2,13 +2,12 @@
   "name": "crossover",
   "version": "1.0.0",
   "description": "Crossover test",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
-    "test": "node_modules/.bin/jest --verbose",
-    "test:watch": "node_modules/.bin/jest --watch",
-    "build": "./node_modules/webpack/bin/webpack.js -p",
-    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline",
-    "postinstall": "node ./node_modules/webpack/bin/webpack.js -p"
+    "test": "node node_modules/.bin/jest --verbose",
+    "test:watch": "node node_modules/.bin/jest --watch",
+    "build": "node ./node_modules/webpack/bin/webpack.js -p",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline"
   },
   "author": "José Neto <sputinykster@gmail.com> (https://www.fb.com/sputinyk)",
   "license": "ISC",
@@ -19,6 +18,7 @@
   "dependencies": {
     "chart.js": "^2.4.0",
     "react": "^15.4.2",
+    "react-chartjs-2": "^2.0.0",
     "react-dom": "^15.4.2"
   },
   "devDependencies": {

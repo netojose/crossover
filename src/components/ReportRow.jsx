@@ -1,10 +1,11 @@
-import React from 'react'
+import React    from 'react'
+import find     from 'lodash/find'
 
 import Loader               from './Loader'
 import BuildBox             from './BuildBox'
 import MetricsBox           from './MetricsBox'
 import ChartBox             from './ChartBox'
-import Ajax                 from '../helpers/Ajax'
+import Api                  from '../helpers/Api'
 
 import '../styles/ReportRow.scss'
 import '../styles/boxes.scss'
@@ -21,7 +22,7 @@ class ReportRow extends React.Component {
      */
     constructor(props){
         super(props)
-        this.state = {expanded: false, details: null, error: false}
+        this.state = {details: null, error: false}
 
         this.toggleExpand = this.toggleExpand.bind(this)
     }
@@ -51,7 +52,7 @@ class ReportRow extends React.Component {
         const sList = [d.metrics.status, d.build.status, d.unit_test.status, d.functional_test.status]
         let conditions = []
 
-        if(sList.find(i => i == 'failed')){
+        if(find(sList, i => i == 'failed')){
             conditions = ['failed', 'Rejected']
         } else if ((sList.filter(i => i == 'success')).length == 4){
             conditions = ['success', (d.complete ? 'Complete' : 'Accepted')]
@@ -85,13 +86,14 @@ class ReportRow extends React.Component {
         }
 
         this.setState(changes)
+        this.props.toggleExpand(this.props.data.id)
     }
 
     /**
      * Make a server call to retrieve data.
      */
     loadDetails(){
-        Ajax.onSuccess(r => {
+        Api.onSuccess(r => {
             this.setState({details: r})
         }).onError(() => {
             this.setState({error: true})
@@ -154,7 +156,7 @@ class ReportRow extends React.Component {
         let details
         if(this.state.error) {
             details = <div className="details-area error">A server error has occurred. Please, try again later.</div>
-        } else if(!this.state.expanded){
+        } else if(!this.props.expanded){
             details = null
         } else if(this.state.details === null){
             details = <div className="details-area"><Loader /></div>
@@ -171,7 +173,7 @@ class ReportRow extends React.Component {
     render(){
         const {data} = this.props
         const [rowColor, state] = this.getRowColorAndState()
-        let e = this.state.expanded
+        let e = this.props.expanded
         return (
             <div className={"row-report " + rowColor}>
                 <ul onClick={this.toggleExpand} className="summary headers">
@@ -195,7 +197,19 @@ ReportRow.propTypes = {
      * Row data.
      * @type {object}
      */
-    data: React.PropTypes.object.isRequired
+    data: React.PropTypes.object.isRequired,
+
+    /**
+     * Toggle status trigger.
+     * @type {function}
+     */
+    toggleExpand: React.PropTypes.func.isRequired,
+
+    /**
+     * Opened status.
+     * @type {boolean}
+     */
+    expanded: React.PropTypes.bool.isRequired
 }
 
 export default ReportRow

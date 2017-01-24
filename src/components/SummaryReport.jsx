@@ -1,9 +1,10 @@
 import React from 'react'
 
+import Api          from '../helpers/Api'
+import Loader       from './Loader'
+import ReportRow    from './ReportRow'
+
 import '../styles/SummaryReport.scss'
-import Ajax from '../helpers/Ajax'
-import Loader from './Loader'
-import ReportRow from './ReportRow'
 
 /**
  * Summary report.
@@ -16,18 +17,24 @@ class SummaryReport extends React.Component {
      */
     constructor(props){
         super(props)
-        this.state = {items: null, error: false}
+        this.state = {items: null, error: false, expandedItem: null}
+        this.toggleExpandItem = this.toggleExpandItem.bind(this)
     }
 
     /**
      * Hook called on before component creation.
      */
     componentWillMount(){
-        Ajax.onSuccess(r => {
+        Api.onSuccess(r => {
             this.setState({items: r})
         }).onError(() => {
             this.setState({error: true})
         }).get('/api/status-all.json')
+    }
+
+    toggleExpandItem(id){
+        let newId = this.state.expandedItem == id ? null : id
+        this.setState({expandedItem: newId})
     }
 
     /**
@@ -57,7 +64,7 @@ class SummaryReport extends React.Component {
                                 </ul>
                                 
                                 <ul className="report-items">
-                                    {this.state.items.map(item => <ReportRow key={item.id} data={item} />)}
+                                    {this.state.items.map(item => <ReportRow key={item.id} data={item} toggleExpand={this.toggleExpandItem} expanded={this.state.expandedItem == item.id} />)}
                                 </ul>
                             </div>
                         )

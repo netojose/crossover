@@ -1,4 +1,4 @@
-class Ajax {
+class Api {
 
     constructor () {
         this.onSuccessCB = null
@@ -49,4 +49,4 @@ class Ajax {
 
 }
 
-export default new Ajax
+export default new Api

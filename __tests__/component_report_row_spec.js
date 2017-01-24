@@ -32,7 +32,7 @@ describe('ReportRow component', () => {
     server.respondWith( 'GET', '/api/status-12.json', response);
 
     beforeEach(() => {
-        component = shallow(<ReportRow data={data} />)
+        component = shallow(<ReportRow data={data} expanded={false} toggleExpand={() => {}} />)
     })
 
     it('Check if row is rendered', () => {
@@ -44,13 +44,5 @@ describe('ReportRow component', () => {
         expect(component.find('li.build .indicator.' + data.build.status).length).toBe(1)
         expect(component.find('li.unit_test .indicator.' + data.unit_test.status).length).toBe(1)
         expect(component.find('li.functional_test .indicator.' + data.functional_test.status).length).toBe(1)
-    })
-
-    it('Check row toggle and ajax call', () => {
-        expect(component.state('expanded')).toBe(false)
-        expect(component.find('.details-area').length).toBe(0)
-        component.find('ul').simulate('click')
-        expect(component.state('expanded')).toBe(true)
-        expect(component.find('.details-area').length).toBe(1)
     })
 })
